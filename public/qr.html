@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan to Preview on Phone</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #FCFCFC;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #2D5A27;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .qr-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .qr-item {
+            text-align: center;
+        }
+        .qr-code {
+            display: inline-block;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #eee;
+        }
+        .url {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #333;
+            word-break: break-all;
+        }
+        .label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2D5A27;
+            margin-bottom: 10px;
+        }
+        .note {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scan to Preview</h1>
+        <p>Make sure your phone is on the same Wi-Fi network</p>
+        
+        <div class="qr-container">
+            <div class="qr-item">
+                <div class="label">Option 1</div>
+                <div class="qr-code" id="qrcode1"></div>
+                <div class="url" id="url1"></div>
+            </div>
+            <div class="qr-item">
+                <div class="label">Option 2</div>
+                <div class="qr-code" id="qrcode2"></div>
+                <div class="url" id="url2"></div>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Tips if it doesn't work:</strong><br>
+            1. Allow Node.js/Vite through Windows Firewall<br>
+            2. Ensure phone and computer are on the EXACT same Wi-Fi<br>
+            3. Try both QR codes above
+        </div>
+    </div>
+
+    <script>
+        const URLs = [
+            'http://172.29.176.1:5173/',
+            'http://10.173.199.22:5173/'
+        ];
+        
+        document.getElementById('url1').textContent = URLs[0];
+        document.getElementById('url2').textContent = URLs[1];
+        
+        new QRCode(document.getElementById('qrcode1'), {
+            text: URLs[0],
+            width: 200,
+            height: 200,
+            colorDark: '#2D5A27',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        new QRCode(document.getElementById('qrcode2'), {
+            text: URLs[1],
+            width: 200,
+            height: 200,
+            colorDark: '#2D5A27',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-brand-green: #10B981;
+  --color-brand-dark: #022c22; /* emerald-950 */
+  --breakpoint-xs: 480px;
+  
+  --animate-pulse-subtle: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float-slow: float-slow 20s ease-in-out infinite;
+  --animate-float-reverse: float-reverse 25s ease-in-out infinite;
+  
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .85; transform: scale(0.98); }
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+    33% { transform: translateY(-30px) scale(1.1) rotate(120deg); }
+    66% { transform: translateY(15px) scale(0.9) rotate(240deg); }
+  }
+  @keyframes float-reverse {
+    0%, 100% { transform: translateY(0) scale(1.1) rotate(360deg); }
+    33% { transform: translateY(20px) scale(0.85) rotate(240deg); }
+    66% { transform: translateY(-40px) scale(1.05) rotate(120deg); }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(2, 44, 34, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.6);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #f0fbf7;
+  color: #022c22;
+}
+
+/* Premium glassmorphic helpers */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(2, 44, 34, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-badge {
+  background: rgba(16, 185, 129, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* Hide default Vite layout centering styling */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Hide scrollbars for sliders while retaining functionality */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  -webkit-overflow-scrolling: touch; /* Smooth iOS momentum scroll */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Responsive background attachment for touch screens and mobile browsers */
+.app-bg-wrapper {
+  background-attachment: fixed;
+}
+@media (max-width: 1024px) {
+  .app-bg-wrapper {
+    background-attachment: scroll !important;
+  }
+}
