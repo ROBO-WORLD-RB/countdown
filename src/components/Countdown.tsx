@@ -246,7 +246,7 @@ export default function Countdown() {
             {/* Assurance Statement */}
             <div className="mb-6 bg-white/5 p-4 rounded-2xl border border-white/5">
               <p className="text-xs sm:text-sm text-emerald-50/90 leading-relaxed font-sans font-medium">
-                📢 <span className="font-bold text-brand-green">Attention Tribe:</span> Cocolyf.com is now going live! We are currently propagating edge servers, compiling static pages, and configuring the global routing engine. **Spaceship.com is ensuring the site build is 100% successful** for lightning-fast speeds. This final security handshake might take a short while—thank you for your patience!
+                📢 <span className="font-bold text-brand-green">Attention Tribe:</span> Cocolyf.com is now going live! We are currently propagating edge servers, compiling static pages, and configuring the global routing engine. <span className="font-bold text-brand-green">Spaceship.com is ensuring the site build is 100% successful</span> for lightning-fast speeds. This final security handshake might take a short while—thank you for your patience!
               </p>
             </div>
 
